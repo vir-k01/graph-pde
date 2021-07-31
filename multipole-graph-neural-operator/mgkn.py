@@ -275,10 +275,10 @@ class MKGN(torch.nn.Module):
 device = torch.device('cuda')
 
 # print('use pre-train model')
-model = torch.load('/content/gdrive/MyDrive/CHdata/models/10.pt')
+#model = torch.load('/content/gdrive/MyDrive/CHdata/models/10.pt')
 
-#model = MKGN(width=width, ker_width=ker_width, depth=depth, ker_in=edge_features,
- #            points=m, level=level, in_width=node_features, out_width=1).cuda()
+model = MKGN(width=width, ker_width=ker_width, depth=depth, ker_in=edge_features,
+             points=m, level=level, in_width=node_features, out_width=1).cuda()
 
 optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate, weight_decay=5e-4)
 scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=scheduler_step, gamma=scheduler_gamma)
